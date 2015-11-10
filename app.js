@@ -23,10 +23,38 @@ if ('development' == app.get('env')) {
 }
 
 app.get('*', function(req, res) {
+	//## Initial Data ##//
 	data = {};
 	data.screen = 'index';
+	data.shop = '09A3C5B1-EBF7-443E-B620-48D3B648294E'; //process.env.Shop;
+	data.apiUrl = 'http://api-test.powerdd.com'; //process.env.API_URL;
+	data.apiKey = 'ABCDEFGH-1111-2222-33333-TSETIPA'; //process.env.ApiKey;
+	data.websiteUrl = process.env.Website_URL;
+	data.categorySelected = '';
+	data.Moment = require('moment');
 
-	routes.index(req, res, data);
+
+	var url = req.headers['x-original-url'].split('/');
+	url = url.filter(function(n){ return n !== ''; });
+
+	if ( url.length >= 1 ) {
+		data.screen = url[0];
+		fs.exists('./views/'+data.screen+'.jade', function (exists) {
+			if (exists) {
+				fs.exists('./public/javascripts/'+data.screen+'.js', function (exists) {
+					data.script = (exists) ? '/javascripts/'+data.screen+'.js' : '';
+					data.subUrl = (url.length == 1 ) ? '' : url[1];
+					routes.index(req, res, data);
+				});
+			}
+			else {
+				routes.index(req, res, data);
+			}
+		});
+	}
+	else {
+		routes.index(req, res, data);
+	}
 
 });
 
