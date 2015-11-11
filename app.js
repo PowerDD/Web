@@ -6,8 +6,8 @@ var http = require('http')
 	, methodOverride = require('method-override')
 	, bodyParser = require('body-parser')
 	, errorHandler = require('errorhandler')
-	, routes = require('./routes');
-
+	, routes = require('./routes')
+	, cookieParser = require('cookie-parser');
 var app = express();
 
 app.set('port', 8999);
@@ -18,7 +18,7 @@ app.use(methodOverride());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(express.cookieParser());
+app.use(cookieParser());
 app.use(app.router);
 
 /*app.configure(function(){
