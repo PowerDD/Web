@@ -1,7 +1,7 @@
 doctype html
 html(lang='en')
 	head
-		title= "PowerDD.com"
+		title= data.title
 		meta(charset='utf-8')
 		meta(name='viewport', content='width=device-width, initial-scale=1')
 		meta(http-equiv='x-ua-compatible', content='ie=edge')
@@ -25,7 +25,7 @@ html(lang='en')
 				#navbar.navbar-collapse.collapse
 					ul.nav.navbar-nav
 						li.active
-							a(href= data.websiteUrl) ข่าวสาร
+							a(href='#') หน้าหลัก
 						li.dropdown
 							a.dropdown-toggle(aria-expanded='false', role='button', data-toggle='dropdown', href='#')
 								| ประเภทสินค้า 
