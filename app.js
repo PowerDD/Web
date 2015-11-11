@@ -14,25 +14,24 @@ app.set('port', 8999);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(favicon(__dirname + '/favicon.ico'));
-//app.use(methodOverride());
+app.use(methodOverride());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.cookieParser()); 
-app.use(express.methodOverride());
-//app.use(app.router);
-
-/*app.set('port', 8999);
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-app.use(favicon(__dirname + '/favicon.ico'));
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.methodOverride());
 app.use(express.cookieParser());
 app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));*/
-
+  
+/*app.configure(function(){
+  app.set('port', process.env.PORT || 3000);
+  app.set('views', __dirname + '/views');
+  app.set('view engine', 'jade');
+  app.use(express.favicon());
+  app.use(express.logger('dev'));
+  app.use(express.bodyParser());
+  app.use(express.methodOverride());
+  app.use(express.cookieParser());
+  app.use(app.router);
+  app.use(express.static(path.join(__dirname, 'public')));
+});*/
 
 if ('development' == app.get('env')) {
 	app.use(errorHandler());
