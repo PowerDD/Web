@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cookieParser());
-//app.use(app.router);
+app.use(router);
 
 /*app.configure(function(){
   app.set('port', process.env.PORT || 3000);
