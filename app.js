@@ -18,7 +18,7 @@ app.use(methodOverride());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(express.cookieParser());
+app.use(cookieParser());
 app.use(app.router);
 
 /*app.configure(function(){
