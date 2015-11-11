@@ -10,13 +10,27 @@ var http = require('http')
 
 var app = express();
 
-app.set('port', 8999);
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-app.use(favicon(__dirname + '/favicon.ico'));
-app.use(methodOverride());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.configure(function(){
+	/*app.set('port', 8999);
+	app.set('views', path.join(__dirname, 'views'));
+	app.set('view engine', 'jade');
+	app.use(favicon(__dirname + '/favicon.ico'));
+	app.use(methodOverride());
+	app.use(bodyParser.urlencoded({ extended: true }));
+	app.use(express.static(path.join(__dirname, 'public')));*/
+	  
+	app.set('port', 8999);
+	app.set('views', path.join(__dirname, 'views'));
+	app.set('view engine', 'jade');
+	app.use(favicon(__dirname + '/favicon.ico'));
+	app.use(express.favicon());
+	app.use(express.logger('dev'));
+	app.use(bodyParser.urlencoded({ extended: true }));
+	app.use(express.methodOverride());
+	app.use(express.cookieParser());
+	app.use(app.router);
+	app.use(express.static(path.join(__dirname, 'public')));
+});
 
 if ('development' == app.get('env')) {
 	app.use(errorHandler());
@@ -35,7 +49,7 @@ app.get('*', function(req, res) {
 
 
 	var url = req.headers['x-original-url'];//.split('/');
-	url = url.filter(function(n){ return n !== ''; });
+	//url = url.filter(function(n){ return n !== ''; });
 
 	if ( url.length >= 1 ) {
 		data.screen = url[0];
