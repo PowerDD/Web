@@ -10,15 +10,15 @@ var http = require('http')
 
 var app = express();
 
-/*app.set('port', 8999);
+app.set('port', 8999);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(favicon(__dirname + '/favicon.ico'));
 app.use(methodOverride());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));*/
+app.use(express.static(path.join(__dirname, 'public')));
   
-app.set('port', 8999);
+/*app.set('port', 8999);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(favicon(__dirname + '/favicon.ico'));
@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.methodOverride());
 app.use(express.cookieParser());
 app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));*/
 
 
 if ('development' == app.get('env')) {
