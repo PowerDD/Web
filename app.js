@@ -50,8 +50,8 @@ app.get('*', function(req, res) {
 	data.Moment = require('moment');
 
 
-	var url = req.headers['x-original-url'].split('/');
-	url = url.filter(function(n){ return n !== ''; });
+	var url = req.headers['x-original-url'];//.split('/');
+	//url = url.filter(function(n){ return n !== ''; });
 
 	if ( url.length >= 1 ) {
 		data.screen = url[0];
