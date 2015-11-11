@@ -23,19 +23,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 app.use(router);
 
-/*app.configure(function(){
-  app.set('port', process.env.PORT || 3000);
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
-  app.use(express.favicon());
-  app.use(express.logger('dev'));
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(express.cookieParser());
-  app.use(app.router);
-  app.use(express.static(path.join(__dirname, 'public')));
-});*/
-
 if ('development' == app.get('env')) {
 	app.use(errorHandler());
 }
@@ -52,8 +39,8 @@ app.get('*', function(req, res) {
 	data.Moment = require('moment');
 
 
-	var url = req.headers['x-original-url'];//.split('/');
-	//url = url.filter(function(n){ return n !== ''; });
+	var url = req.headers['x-original-url'].split('/');
+	url = url.filter(function(n){ return n !== ''; });
 
 	if ( url.length >= 1 ) {
 		data.screen = url[0];
