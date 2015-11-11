@@ -7,7 +7,9 @@ var http = require('http')
 	, bodyParser = require('body-parser')
 	, errorHandler = require('errorhandler')
 	, routes = require('./routes')
-	, cookieParser = require('cookie-parser');
+	, cookieParser = require('cookie-parser')
+	, router = express.Router();
+	
 var app = express();
 
 app.set('port', 8999);
