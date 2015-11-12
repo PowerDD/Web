@@ -20,9 +20,9 @@ exports.getBrand = function(req, res, data){
 		},
 		function (error, response, body) {
 			if (!error) {				
-				var json = JSON.parse(body);
+				//var json = JSON.parse(body);
 				//data.brand = json.result;
-				res.send(json);
+				res.send(body);
 			}else{
 				data.error = error.message;
 				data.stack = error.stack;
