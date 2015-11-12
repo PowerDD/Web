@@ -12,7 +12,7 @@ exports.index = function(req, res, data){
 exports.getBrand = function(req, res, data){
 	//## Get Brand ##//
 	try{
-		request.post({url: data.apiUrl + '/brand/info',
+		request.post({headers: { 'referer': data.websiteUrl }, url: data.apiUrl + '/brand/info',
 			form: {
 				apiKey: data.apiKey,
 				shop: data.shop
@@ -26,7 +26,7 @@ exports.getBrand = function(req, res, data){
 			}else{
 				data.error = error.message;
 				data.stack = error.stack;
-				res.render('error', { data: data });
+				res.render('index', { data: data });
 			}
 		});
 	}
