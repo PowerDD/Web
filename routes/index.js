@@ -36,6 +36,6 @@ exports.getBrand = function(req, res, data){
 		data.stack = error.stack;
 		//res.render('error', { data: data });
 		res.send(data);
-	};
+	}
 };
 
