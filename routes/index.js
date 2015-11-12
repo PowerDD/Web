@@ -26,14 +26,16 @@ exports.getBrand = function(req, res, data){
 			}else{
 				data.error = error.message;
 				data.stack = error.stack;
-				res.render('index', { data: data });
+				//res.render('error', { data: data });
+				res.send(data);
 			}
 		});
 	}
 	catch(error) {
 		data.error = error.message;
 		data.stack = error.stack;
-		res.render('error', { data: data });
+		//res.render('error', { data: data });
+		res.send(data);
 	};
 };
 
