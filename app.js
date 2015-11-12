@@ -23,6 +23,7 @@ if ('development' == app.get('env')) {
 	app.use(errorHandler());
 }
 
+
 app.get('*', function(req, res) {
 	//## Initial Data ##//
 	data = {};
@@ -32,7 +33,8 @@ app.get('*', function(req, res) {
 	data.apiKey = 'ABCDEFGH-1111-2222-33333-TSETIPA'; //process.env.ApiKey;
 	data.websiteUrl = 'https://test.powerdd.com';//process.env.Website_URL;
 	data.Moment = require('moment');
-	data.originalUrl = req.originalUrl;
+	data.originalUrl = req.headers['x-original-url'];
+	data.test = 'test';
 
 
 	var url = req.originalUrl.split('/');
