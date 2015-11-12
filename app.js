@@ -11,9 +11,7 @@ var http = require('http')
 var app = express();
 
 app.set('port', 8999);
-//app.set('views', path.join(__dirname, 'views'));
-//app.set('view engine', 'jade');
-app.set('views', __dirname + '/views');
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(favicon(__dirname + '/favicon.ico'));
 app.use(methodOverride());
