@@ -34,7 +34,7 @@ app.get('*', function(req, res) {
 	data.shop = '09A3C5B1-EBF7-443E-B620-48D3B648294E'; //process.env.Shop;
 	data.apiUrl = 'http://api-test.powerdd.com'; //process.env.API_URL;
 	data.apiKey = 'ABCDEFGH-1111-2222-33333-TSETIPA'; //process.env.ApiKey;
-	data.websiteUrl = process.env.Website_URL;
+	data.websiteUrl = 'www.test.powerdd.com';//process.env.Website_URL;
 	data.categorySelected = '';
 	data.Moment = require('moment');
 
