@@ -12,7 +12,7 @@ exports.index = function(req, res, data){
 exports.getBrand = function(req, res, data){
 	//## Get Brand ##//
 	try{
-		request.post({headers: { 'referer': data.websiteUrl }, url: data.apiUrl + '/brand/info',
+		request.post({url: data.apiUrl + '/brand/info',
 			form: {
 				apiKey: data.apiKey,
 				shop: data.shop
