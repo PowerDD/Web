@@ -18,6 +18,7 @@ app.use(methodOverride());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 if ('development' == app.get('env')) {
 	app.use(errorHandler());
 }
