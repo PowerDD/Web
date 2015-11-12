@@ -1,4 +1,151 @@
 extends layout
 
 block content
+	.container.margin-top-70
+		.row
+			.col-md-3(ng-hide="brand == 'Remax'")
+				img.img-responsive.pointer(src='/images/logo/remax.png', ng-click="brand = 'Remax'")
+			.col-md-3(ng-hide="brand == 'Xiaomi'")
+				img.img-responsive.pointer(src='/images/logo/xiaomi.png', ng-click="brand = 'Xiaomi'")
+			.col-md-3(ng-hide="brand == 'MiLi'")
+				img.img-responsive.pointer(src='/images/logo/mili.png', ng-click="brand = 'MiLi'")
+			.col-md-3(ng-hide="brand == 'PNG'")
+				img.img-responsive.pointer(src='/images/logo/png.png', ng-click="brand = 'PNG'")
+			.col-md-3(ng-hide="brand == 'Havit'")
+				img.img-responsive.pointer(src='/images/logo/havit.png', ng-click="brand = 'Havit'")
+			.col-md-3(ng-hide="brand == 'Momax'")
+				img.img-responsive.pointer(src='/images/logo/momax.png', ng-click="brand = 'Momax'")
+
+		.row.line
+
+	.container.margin-top-10
+		.row.pin
+			.col-md-3(ng-hide="brand != 'Remax'")
+				img.img-responsive(src='/images/logo/remax.png')
+			.col-md-3(ng-hide="brand != 'Xiaomi'")
+				img.img-responsive(src='/images/logo/xiaomi.png')
+			.col-md-3(ng-hide="brand != 'MiLi'")
+				img.img-responsive(src='/images/logo/mili.png')
+			.col-md-3(ng-hide="brand != 'PNG'")
+				img.img-responsive(src='/images/logo/png.png')
+			.col-md-3(ng-hide="brand != 'Havit'")
+				img.img-responsive(src='/images/logo/havit.png')
+			.col-md-3(ng-hide="brand != 'Momax'")
+				img.img-responsive(src='/images/logo/momax.png')
+
+			.col-md-3.card(ng-hide="brand != 'Remax'")
+				img.img-responsive(src='/images/category/remax/new_arrivals.jpg')
+				.text-center New Arrivals
+			.col-md-3.card(ng-hide="brand != 'Remax'")
+				img.img-responsive(src='/images/category/remax/adapter.jpg')
+				.text-center Adapter
+			.col-md-3.card(ng-hide="brand != 'Remax'")
+				img.img-responsive(src='/images/category/remax/bag.jpg')
+				.text-center Bag
+			.col-md-3.card(ng-hide="brand != 'Remax'")
+				img.img-responsive(src='/images/category/remax/cable.jpg')
+				.text-center Cable
+			.col-md-3.card(ng-hide="brand != 'Remax'")
+				img.img-responsive(src='/images/category/remax/car_gadget.jpg')
+				.text-center Car Gadget
+			.col-md-3.card(ng-hide="brand != 'Remax'")
+				img.img-responsive(src='/images/category/remax/case_for_smartphone.jpg')
+				.text-center Case for Smartphone
+			.col-md-3.card(ng-hide="brand != 'Remax'")
+				img.img-responsive(src='/images/category/remax/case_for_tablet.jpg')
+				.text-center Case for Tablet
+			.col-md-3.card(ng-hide="brand != 'Remax'")
+				img.img-responsive(src='/images/category/remax/gadget.jpg')
+				.text-center Gadget
+			.col-md-3.card(ng-hide="brand != 'Remax'")
+				img.img-responsive(src='/images/category/remax/power_bank.jpg')
+				.text-center Power Bank
+			.col-md-3.card(ng-hide="brand != 'Remax'")
+				img.img-responsive(src='/images/category/remax/small_talk-bluetooth.jpg')
+				.text-center Small Talk / Bluetooth
+
+				
+			.col-md-3.card(ng-hide="brand != 'Xiaomi'")
+				img.img-responsive(src='/images/category/xiaomi/mobile_phone.jpg')
+				.text-center Smart Phone
+			.col-md-3.card(ng-hide="brand != 'Xiaomi'")
+				img.img-responsive(src='/images/category/xiaomi/power_bank.jpg')
+				.text-center Power Bank
+			.col-md-3.card(ng-hide="brand != 'Xiaomi'")
+				img.img-responsive(src='/images/category/xiaomi/earphones.jpg')
+				.text-center Earphones
+			.col-md-3.card(ng-hide="brand != 'Xiaomi'")
+				img.img-responsive(src='/images/category/xiaomi/network.jpg')
+				.text-center Network
+			.col-md-3.card(ng-hide="brand != 'Xiaomi'")
+				img.img-responsive(src='/images/category/xiaomi/fan.jpg')
+				.text-center Fan
+			.col-md-3.card(ng-hide="brand != 'Xiaomi'")
+				img.img-responsive(src='/images/category/xiaomi/gift.jpg')
+				.text-center Gift
+			.col-md-3.card(ng-hide="brand != 'Xiaomi'")
+				img.img-responsive(src='/images/category/xiaomi/media_player.jpg')
+				.text-center Media Player
+			.col-md-3.card(ng-hide="brand != 'Xiaomi'")
+				img.img-responsive(src='/images/category/xiaomi/camera.jpg')
+				.text-center Camera
+
+				
+			.col-md-3.card(ng-hide="brand != 'MiLi'")
+				img.img-responsive(src='/images/category/mili/power_bank.jpg')
+				.text-center Power Bank
+			.col-md-3.card(ng-hide="brand != 'MiLi'")
+				img.img-responsive(src='/images/category/mili/gadget.jpg')
+				.text-center Gadget
+			.col-md-3.card(ng-hide="brand != 'MiLi'")
+				img.img-responsive(src='/images/category/mili/cable.jpg')
+				.text-center Cable
+			.col-md-3.card(ng-hide="brand != 'MiLi'")
+				img.img-responsive(src='/images/category/mili/otg.jpg')
+				.text-center OTG
+
+				
+			.col-md-3.card(ng-hide="brand != 'PNG'")
+				img.img-responsive(src='/images/category/png/charger.jpg')
+				.text-center USB Travel Charger
+			.col-md-3.card(ng-hide="brand != 'PNG'")
+				img.img-responsive(src='/images/category/png/cable.jpg')
+				.text-center Cable
+			.col-md-3.card(ng-hide="brand != 'PNG'")
+				img.img-responsive(src='/images/category/png/aux.jpg')
+				.text-center AUX Cable
+			.col-md-3.card(ng-hide="brand != 'PNG'")
+				img.img-responsive(src='/images/category/png/adapter.jpg')
+				.text-center USB Car Charger
+
+				
+			.col-md-3.card(ng-hide="brand != 'Havit'")
+				img.img-responsive(src='/images/category/havit/wireless_headset.jpg')
+				.text-center Wireless Headset
+			.col-md-3.card(ng-hide="brand != 'Havit'")
+				img.img-responsive(src='/images/category/havit/webcam.jpg')
+				.text-center Webcam
+			.col-md-3.card(ng-hide="brand != 'Havit'")
+				img.img-responsive(src='/images/category/havit/cable.jpg')
+				.text-center Cable
+			.col-md-3.card(ng-hide="brand != 'Havit'")
+				img.img-responsive(src='/images/category/havit/adapter.jpg')
+				.text-center Adapter
+			.col-md-3.card(ng-hide="brand != 'Havit'")
+				img.img-responsive(src='/images/category/havit/charger.jpg')
+				.text-center USB Charger
+
+
+			.col-md-3.card(ng-hide="brand != 'Momax'")
+				img.img-responsive(src='/images/category/momax/power_bank.jpg')
+				.text-center Power Bank
+			.col-md-3.card(ng-hide="brand != 'Momax'")
+				img.img-responsive(src='/images/category/momax/cable.jpg')
+				.text-center Cable
+			.col-md-3.card(ng-hide="brand != 'Momax'")
+				img.img-responsive(src='/images/category/momax/lenses.jpg')
+				.text-center Lenses
+			.col-md-3.card(ng-hide="brand != 'Momax'")
+				img.img-responsive(src='/images/category/momax/bluetooth.jpg')
+				.text-center Bluetooth
 	
