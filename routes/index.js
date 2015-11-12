@@ -23,7 +23,7 @@ exports.getBrand = function(req, res, data){
 			if (!error) {				
 				var json = JSON.parse(body);
 				data.brand = json.result;
-				res.render(data.screen, { data: data });
+				res.send(data);
 			}else{
 				data.error = error.message;
 				data.stack = error.stack;
