@@ -36,7 +36,7 @@ exports.getBrand = function(req, res, data){
 		data.error = error.message;
 		data.stack = error.stack;
 		//res.render('error', { data: data });
-		res.send(data);
+		res.send(error);
 	}
 };
 
