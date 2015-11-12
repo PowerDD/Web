@@ -5,8 +5,8 @@ exports.index = function(req, res, data){
 	if (data.screen == 'index') {	
 		data.title = 'หน้าหลัก';
 	}
-	
-	exports.getBrand(req, res, data);
+	res.send(data);
+	//exports.getBrand(req, res, data);
 	
 };
 
