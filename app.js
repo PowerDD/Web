@@ -18,46 +18,15 @@ app.use(methodOverride());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-
 if ('development' == app.get('env')) {
 	app.use(errorHandler());
 }
 
-
 app.get('*', function(req, res) {
-	//## Initial Data ##//
 	data = {};
 	data.screen = 'index';
-	data.shop = '09A3C5B1-EBF7-443E-B620-48D3B648294E'; //process.env.Shop;
-	data.apiUrl = 'https://api-test.powerdd.com'; //process.env.API_URL;
-	data.apiKey = 'ABCDEFGH-1111-2222-33333-TSETIPA'; //process.env.ApiKey;
-	data.websiteUrl = 'https://test.powerdd.com';//process.env.Website_URL;
-	data.Moment = require('moment');
-	data.originalUrl = req.originalUrl;
-	data.test = 'test';
 
-
-	var url = req.originalUrl.split('/');
-	url = url.filter(function(n){ return n !== ''; });
-
-	if ( url.length >= 1 ) {
-		data.screen = url[0];
-		fs.exists('./views/'+data.screen+'.jade', function (exists) {
-			if (exists) {
-				fs.exists('./public/javascripts/'+data.screen+'.js', function (exists) {
-					data.script = (exists) ? '/javascripts/'+data.screen+'.js' : '';
-					data.subUrl = (url.length == 1 ) ? '' : url[1];
-					routes.index(req, res, data);
-				});
-			}
-			else {
-				routes.index(req, res, data);
-			}
-		});
-	}
-	else {
-		routes.index(req, res, data);
-	}
+	routes.index(req, res, data);
 
 });
 
