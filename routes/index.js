@@ -26,7 +26,7 @@ exports.getBrand = function(req, res, data){ //data.apiUrl + '/brand/info'
 			}
 		}); */
 		
-		request(data.apiUrl , function (error, response, body) {
+		request('http://remaxthailand.co.th' , function (error, response, body) {
 			if (!error) {
 				res.send(body);
 		    }
