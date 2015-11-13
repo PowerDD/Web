@@ -10,16 +10,10 @@ exports.index = function(req, res, data){
 
 exports.getBrand = function(req, res, data){ //data.apiUrl + '/brand/info'
 	try{
-		request.post({headers: { 'referer': data.websiteUrl }, url: 'https://log.powerdd.com/'
-		},
-		function (error, response, body) {
-			if (!error) {				
-				res.send(body);
-			} else{
-				data.error = error.message;
-				data.stack = error.stack;
-				res.render('error', { data: data });
-			}
+		request('http://www.google.com', function (error, response, body) {
+		if (!error && response.statusCode == 200) {
+			console.log(body) // Show the HTML for the Google homepage.
+		  }
 		});
 	}
 	catch(error) {
