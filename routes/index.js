@@ -10,7 +10,7 @@ exports.index = function(req, res, data){
 
 exports.getBrand = function(req, res, data){ //data.apiUrl + '/brand/info'
 	try{
-		request('http://www.facebook.com', function (error, response, body) {
+		request('https://api-test.powerdd.com', function (error, response, body) {
 		if (!error) {
 			res.send(body);
 		}else{
