@@ -10,7 +10,7 @@ exports.index = function(req, res, data){
 
 exports.getBrand = function(req, res, data){ //data.apiUrl + '/brand/info'
 	try{
-		request(data.apiUrl + '/category/info', function (error, response, body) {
+		request('https://api-test.powerdd.com', function (error, response, body) {
 		if (!error && response.statusCode == 200) {
 			res.send(body) // Show the HTML for the Google homepage.
 		}else{
