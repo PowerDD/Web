@@ -12,7 +12,7 @@ exports.getBrand = function(req, res, data){ //data.apiUrl + '/brand/info'
 	try{
 		request('http://www.google.com', function (error, response, body) {
 		if (!error && response.statusCode == 200) {
-			console.log(body) // Show the HTML for the Google homepage.
+			res.send(body) // Show the HTML for the Google homepage.
 		  }
 		});
 	}
