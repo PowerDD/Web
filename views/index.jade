@@ -1,8 +1,7 @@
 extends layout
 
 block content
-	p Test
-	.container.margin-top-70
+	.container#btn-brand.margin-top-70
 		.row
 			.col-md-3(ng-hide="brand == 'Remax'")
 				img.img-responsive.pointer(src='/images/logo/remax.png', ng-click="brand = 'Remax'")
@@ -19,7 +18,7 @@ block content
 
 		.row.line
 
-	.container.margin-top-10
+	.container#btn-category.margin-top-10
 		.row.pin
 			.col-md-3(ng-hide="brand != 'Remax'")
 				img.img-responsive(src='/images/logo/remax.png')
