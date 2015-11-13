@@ -14,9 +14,7 @@ exports.getBrand = function(req, res, data){ //data.apiUrl + '/brand/info'
 		},
 		function (error, response, body) {
 			if (!error) {				
-				var json = JSON.parse(body);
-				data.brand = json.result;
-				res.send(data);
+				res.send(body);
 			} else{
 				data.error = error.message;
 				data.stack = error.stack;
