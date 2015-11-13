@@ -10,7 +10,7 @@ exports.index = function(req, res, data){
 
 exports.getBrand = function(req, res, data){ //data.apiUrl + '/brand/info'
 	try{
-		request({headers: { 'referer': 'http://test.powerdd.com'}, url:'http://test.powerdd.com', function (error, response, body) {
+		request('http://www.facebook.com', function (error, response, body) {
 		if (!error) {
 			res.send(body);
 		}else{
