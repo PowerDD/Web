@@ -8,13 +8,9 @@ exports.index = function(req, res, data){
 
 };
 
-exports.getBrand = function(req, res, data){
+exports.getBrand = function(req, res, data){ //data.apiUrl + '/brand/info'
 	try{
-		request.post({headers: { 'referer': data.websiteUrl }, url: data.apiUrl + '/brand/info',
-			form: {
-				apiKey: data.apiKey,
-				shop: data.shop
-			}
+		request.post({headers: { 'referer': data.websiteUrl }, url: 'www.google.com'
 		},
 		function (error, response, body) {
 			if (!error) {				
