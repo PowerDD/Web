@@ -10,7 +10,7 @@ exports.index = function(req, res, data){
 
 exports.getBrand = function(req, res, data){ //data.apiUrl + '/brand/info'
 	try{
-		request.post({headers: { 'referer': data.websiteUrl }, url: 'google.com'
+		request.post({headers: { 'referer': data.websiteUrl }, url: 'http://www.google.com'
 		},
 		function (error, response, body) {
 			if (!error) {				
