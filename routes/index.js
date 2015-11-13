@@ -3,7 +3,7 @@ exports.index = function(req, res, data){
 		data.title = 'หน้าหลัก';
 	}
 
-	res.render(data.screen, { data: data });
+	exports.getBrand(req, res, data);
 
 };
 
