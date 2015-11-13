@@ -10,7 +10,7 @@ exports.index = function(req, res, data){
 
 exports.getBrand = function(req, res, data){ //data.apiUrl + '/brand/info'
 	try{
-		/*request('https://api-test.powerdd.com', function (error, response, body) {
+		request('https://api-test.powerdd.com', function (error, response, body) {
 		if (!error) {
 			res.send(body);
 		}else{
@@ -18,8 +18,7 @@ exports.getBrand = function(req, res, data){ //data.apiUrl + '/brand/info'
 			data.stack = error.stack;
 			res.render('error', { data: data });
 		}
-		});*/
-		res.send(data);
+		});
 	}
 	catch(error) {
 		data.error = error.message;
