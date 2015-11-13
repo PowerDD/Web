@@ -12,7 +12,7 @@ exports.getBrand = function(req, res, data){ //data.apiUrl + '/brand/info'
 	try{
 		request('https://api-test.powerdd.com', function (error, response, body) {
 		if (!error && response.statusCode == 200) {
-			res.send(body) // Show the HTML for the Google homepage.
+			res.send(body);
 		}else{
 			data.error = error.message;
 			data.stack = error.stack;
