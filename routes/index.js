@@ -10,14 +10,20 @@ exports.index = function(req, res, data){
 
 exports.getBrand = function(req, res, data){ //data.apiUrl + '/brand/info'
 	try{
-		request('https://api-test.powerdd.com', function (error, response, body) {
-		if (!error) {
-			res.send(body);
-		}else{
-			data.error = error.message;
-			data.stack = error.stack;
-			res.render('error', { data: data });
-		}
+		request.post({headers: { 'referer': data.websiteUrl }, url: data.apiUrl + '/brand/info',
+			form: {
+				apiKey: data.apiKey,
+				shop: data.shop
+			}
+		},
+		function (error, response, body) {
+			if (!error) {				
+				res.send(body);
+			} else{
+				data.error = error.message;
+				data.stack = error.stack;
+				res.render('error', { data: data });
+			}
 		});
 	}
 	catch(error) {
