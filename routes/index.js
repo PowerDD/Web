@@ -10,7 +10,7 @@ exports.index = function(req, res, data){
 
 exports.getBrand = function(req, res, data){ //data.apiUrl + '/brand/info'
 	try{
-		request.post({headers: { 'referer': data.websiteUrl }, url: data.apiUrl + '/brand/info',
+		/* request.post({headers: { 'referer': data.websiteUrl }, url: data.apiUrl + '/brand/info',
 			form: {
 				apiKey: data.apiKey,
 				shop: data.shop
@@ -24,6 +24,12 @@ exports.getBrand = function(req, res, data){ //data.apiUrl + '/brand/info'
 				data.stack = error.stack;
 				res.render('error', { data: data });
 			}
+		}); */
+		
+		request(data.apiUrl , function (error, response, body) {
+			if (!error) {
+				res.send(body);
+		    }
 		});
 	}
 	catch(error) {

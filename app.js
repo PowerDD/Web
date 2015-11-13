@@ -29,7 +29,7 @@ app.get('*', function(req, res) {
 	data.shop = '09A3C5B1-EBF7-443E-B620-48D3B648294E'; //process.env.Shop;
 	data.apiUrl = 'https://api-test.powerdd.com'; //process.env.API_URL;
 	data.apiKey = 'TEST-0003'; //process.env.ApiKey;
-	data.websiteUrl = 'test.powerdd.com';//process.env.Website_URL;
+	data.websiteUrl = 'https://test.powerdd.com';//process.env.Website_URL;
 	data.categorySelected = '';
 	data.Moment = require('moment');
 
