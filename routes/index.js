@@ -26,7 +26,7 @@ exports.getBrand = function(req, res, data){ //data.apiUrl + '/brand/info'
 			}
 		}); */
 		
-		request({headers: { 'referer': 'https://test.powerdd.com'}, url:'http://api-test.powerdd.com'} , 
+		request({headers: { 'referer': 'http://test.powerdd.com'}, url:'http://api-test.powerdd.com'} , 
 		function (error, response, body) {
 			if (!error) {
 				res.send(body);
