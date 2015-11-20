@@ -5,7 +5,7 @@ exports.index = function(req, res, data){
 	}
 
 	try{
-		request('http://www.google.com',
+		request('api-test.powerdd.com',
 		function (error, response, body) {
 			if (!error) {				
 				// var json = JSON.parse(body);
@@ -17,6 +17,19 @@ exports.index = function(req, res, data){
 				res.render('error', { data: data });
 			}
 		});
+		
+		
+		/* request.post({url:'http://service.com/upload', 
+		form: {key:'value'}}, 
+		function(err,httpResponse,body){ 
+			if (!error) {				
+				res.send(body);
+			}else{
+				data.error = error.message;
+				data.stack = error.stack;
+				res.render('error', { data: data });
+			} 
+		}) */
 	}
 	catch(error) {
 		data.error = error.message;
