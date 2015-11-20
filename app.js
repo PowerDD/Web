@@ -36,7 +36,7 @@ app.get('*', function(req, res) {
 
 
 	var url = req.originalUrl.split('/');
-	//url = url.filter(function(n){ return n !== ''; });
+	url = url.filter(function(n){ return n !== ''; });
 	data.url = url;
 	
 	if ( url.length >= 1 ) {
