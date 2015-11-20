@@ -3,8 +3,8 @@ exports.index = function(req, res, data){
 	if (data.screen == 'index') {
 		data.title = 'หน้าหลัก';
 	}
-
-	exports.getCategory(req, res, data);
+	res.send(data);
+	//exports.getCategory(req, res, data);
 
 };
 
