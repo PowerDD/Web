@@ -5,7 +5,7 @@ exports.index = function(req, res, data){
 	}
 
 	try{
-		request('https://127.0.0.1:7990',
+		request('http://127.0.0.1:7990',
 		function (error, response, body) {
 			if (!error) {				
 				// var json = JSON.parse(body);
