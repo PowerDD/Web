@@ -4,66 +4,33 @@ exports.index = function(req, res, data){
 		data.title = 'หน้าหลัก';
 	}
 
+	exports.getCategory(req, res, data);
+
+};
+
+exports.getCategory = function(req, res, data){
 	try{
-		request('http://127.0.0.1:7990',
+		request.post({url: {data.apiUrl + '/category/info'},
+			form: {
+				apiKey: data.apiKey,
+				shop: data.shop
+			}
+		},
 		function (error, response, body) {
 			if (!error) {				
-				// var json = JSON.parse(body);
-				// data.category = json.result;
-				res.send(body);
+				var json = JSON.parse(body);
+				data.category = json.result;
+				res.send(data);
 			} else{
 				data.error = error.message;
 				data.stack = error.stack;
-				res.send(data);
-				//res.render('error', { data: data });
+				res.render('error', { data: data });
 			}
 		});
-		
-		
-		/* request.post({url:'http://service.com/upload', 
-		form: {key:'value'}}, 
-		function(err,httpResponse,body){ 
-			if (!error) {				
-				res.send(body);
-			}else{
-				data.error = error.message;
-				data.stack = error.stack;
-				res.render('error', { data: data });
-			} 
-		}) */
 	}
 	catch(error) {
 		data.error = error.message;
 		data.stack = error.stack;
-		res.send(data);
-		//res.render('error', { data: data });
+		res.render('error', { data: data });
 	}
-
 };
-
-// exports.getCategory = function(req, res, data){
-	// try{
-		// request.post({url: {data.apiUrl + '/category/info'},
-			// form: {
-				// apiKey: data.apiKey,
-				// shop: data.shop
-			// }
-		// },
-		// function (error, response, body) {
-			// if (!error) {				
-				// var json = JSON.parse(body);
-				// data.category = json.result;
-				// res.send(data);
-			// } else{
-				// data.error = error.message;
-				// data.stack = error.stack;
-				// res.render('error', { data: data });
-			// }
-		// });
-	// }
-	// catch(error) {
-		// data.error = error.message;
-		// data.stack = error.stack;
-		// res.render('error', { data: data });
-	// }
-// };
