@@ -1,4 +1,4 @@
-var request = require('request');
+var request = require('./request');
 exports.index = function(req, res, data){
 	if (data.screen == 'index') {
 		data.title = 'หน้าหลัก';
