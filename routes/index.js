@@ -5,7 +5,7 @@ exports.index = function(req, res, data){
 	}
 
 	try{
-		request('https://api-test.powerdd.com',
+		request('https://blognone.com',
 		function (error, response, body) {
 			if (!error) {				
 				// var json = JSON.parse(body);
