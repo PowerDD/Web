@@ -37,7 +37,8 @@ app.get('*', function(req, res) {
 
 	var url = req.originalUrl.split('/');
 	url = url.filter(function(n){ return n !== ''; });
-
+	data.url = url;
+	
 	if ( url.length >= 1 ) {
 		data.screen = url[0];
 		fs.exists('./views/'+data.screen+'.jade', function (exists) {
