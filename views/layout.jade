@@ -1,146 +1,75 @@
 doctype html
-html(lang='en')
+html
 	head
-		title= data.title + " : PowerDD.com"
 		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		title= data.title : Remax (Thailand)
+		meta(name='description', content= data.description)
 		meta(name='viewport', content='width=device-width, initial-scale=1')
-		meta(http-equiv='x-ua-compatible', content='ie=edge')
-		meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no', name='viewport')
-		link(rel='stylesheet', href='//cdn.powerdd.com/bootswatch/slate/bootstrap.min.css')
-		link(rel='stylesheet', href='/stylesheets/style.css')
 		link(rel='shortcut icon', href='/favicon.ico', type='image/x-icon')
 		link(rel='icon', href='/favicon.ico', type='image/x-icon')
-
-	body(ng-app, ng-init="brand = 'Remax'")
-
-		nav.navbar.navbar-default.navbar-fixed-top.nav-shadow
-			.container
-				.navbar-header
-					button.navbar-toggle.collapsed(aria-controls='navbar', aria-expanded='false', data-target='#navbar', data-toggle='collapse', type='button')
-						span.sr-only Toggle navigation
-						span.icon-bar
-						span.icon-bar
-						span.icon-bar
-					a.navbar-brand(href=)
-						img(src='//img.powerdd.com/web/logo/powerdd.png')
-				#navbar.navbar-collapse.collapse
-					ul.nav.navbar-nav
-						li.active
-							a(href= 'www.powerdd.com') หน้าหลัก
-						li.dropdown
-							a.dropdown-toggle(aria-expanded='false', role='button', data-toggle='dropdown', href='#')
-								| ประเภทสินค้า 
+		link(href='//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css', rel='stylesheet')
+		link(href='https://cdn.powerdd.com/bootstrap/3.3.5/css/bootstrap.min.css', rel='stylesheet')
+		link(href='https://cdn.powerdd.com/font-awesome/4.4.0/css/font-awesome.min.css', rel='stylesheet')
+		link(href='/stylesheets/style.css', rel='stylesheet')
+		script(src='//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min.js')
+	body
+		input#api_url(type='hidden', value= data.api_url)
+		input#api_key(type='hidden', value= data.api_key)
+		input#api_url_new(type='hidden', value= data.api_url_new)
+		.container
+			nav.navbar.navbar-default.navbar-fixed-top.nav-shadow(role='navigation')
+				.container
+					.navbar-header
+						button.navbar-toggle.collapsed(aria-controls='navbar', aria-expanded='false', data-target='#navbar', data-toggle='collapse', type='button')
+							span.sr-only Toggle navigation
+							span.icon-bar
+							span.icon-bar
+							span.icon-bar
+						a.navbar-brand(href= data.system_url)
+							img(src='https://img.powerdd.com/web/logo/remax.png')
+					#navbar.navbar-collapse.collapse
+						ul.nav.navbar-nav
+							li.(class= (data.screen == 'index' ? 'active' : ''))
+								a(href= data.system_url) หน้าหลัก
+							li.(class= (data.screen == 'about_us' ? 'active' : ''))
+								a(href="data.system_url+'/about_us'") เกี่ยวกับเรา
+							li(class=(data.screen == 'category' ? 'dropdown active' : 'dropdown'))
+							a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+								| หมวดหมู่สินค้า 
 								span.caret
 							ul.dropdown-menu(role='menu')
-								li
-									a(href='//remaxthailand.co.th/product/category/new') New Arrivals
-								li
-									a(href='//remaxthailand.co.th/product/category/adapter') Adapter
-								li
-									a(href='//remaxthailand.co.th/product/category/bag') Bag
-								li
-									a(href='//remaxthailand.co.th/product/category/cable') Cable
-								li
-									a(href='//remaxthailand.co.th/product/category/car_gadget') Car Gadget
-								li
-									a(href='//remaxthailand.co.th/product/category/case_for_smartphone') Case for Smartphone
-								li
-									a(href='//remaxthailand.co.th/product/category/case_for_tablet') Case for Tablet
-								li
-									a(href='//remaxthailand.co.th/product/category/film') Film
-								li
-									a(href='//remaxthailand.co.th/product/category/gadget') Gadget
-								li
-									a(href='//remaxthailand.co.th/product/category/power_bank') Power Bank
-								li
-									a(href='//remaxthailand.co.th/product/category/small_talk-bluetooth') Small Talk / Bluetooth
-								li
-									a(href='//remaxthailand.co.th/product/category/speaker') Speaker
-						li
-							a(href='//remaxthailand.co.th/about_us') ขั้นตอนการสั่งซื้อ
-						li
-							a(href='//remaxthailand.co.th/contact_us') เกี่ยวกับเรา
-						li(class=(data.screen == 'dropdown contact' ? 'dropdown active' : ''))
-							a.dropdown-toggle(href='javascript:void(0)', data-toggle='dropdown', role='button', aria-expanded='false')
-								| ติดต่อสอบถาม 
-								span.caret
-							ul.dropdown-menu(role='menu')
-								li
-									a(href='javascript:void(0)')
-										table
-											tr
-												td
-													img.img-responsive(src="//img.powerdd.com/web/contact/line-powerdd.png", width="150")
-											tr
-												td(align="center")
-													| Line ID  
-													b @PowerDD
-											tr
-												td.padding-top-5(align="center")
-													i.fa.fa-phone-square
-													|  098-9919-060
-					ul.nav.navbar-nav.navbar-right
-						li
-							a(href='https://24fin-backend.azurewebsites.net') สั่งซื้อสินค้า {{brand}}
+								li(class=(data.screen == 'category' && data.categorySelected == new ? 'active' : ''))
+									a(href= data.system_url+'/product/category/new') New Arrivals
+								each values in data.category
+									li(class=(data.screen == 'category' && data.categorySelected == values.url ? 'active' : ''))
+										a(href='#{data.system_url}/category/'+values.url)= values.name
+							li.(class= (data.screen == 'contact_us' ? 'active' : ''))
+								a(href= data.system_url+'/contact_us') ติดต่อเรา
+							li.(class= (data.screen == 'warranty_condition' ? 'active' : ''))
+								a(href= data.system_url+'/warranty_condition') เงื่อนไขการรับประกัน
+							li.(class= (data.screen == 'payment' ? 'active' : ''))
+								a(href= data.system_url+'/payment') วิธีการชำระเงิน
+						ul.nav.navbar-nav.navbar-right
+							li
+								a(href='https://24fin-backend.azurewebsites.net') เข้าสู่ระบบ/สมัครสมาชิก
 		.bg-white
 			.container.block-content.padding-top-20(role="main")
 				block content
-		nav.navbar.margin-top-20(style="border-radius:0; margin-bottom: 0px;")
-			.container
-				.navbar-collapse.collapse
-					ul.nav.navbar-nav.navbar-nav-center
-						li(class=(data.screen == 'news' ? 'active' : ''))
-							a(href='#{data.websiteUrl}/news') ข่าวสาร
-
-						li(class=(data.screen == 'category' ? 'dropdown active' : 'dropdown'))
-							a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
-								| ประเภทสินค้า 
-								span.caret
-							ul.dropdown-menu(role='menu')
-						li(class=(data.screen == 'about_us' ? 'active' : ''))
-							a(href='#{data.websiteUrl}/how_to_order') ขั้นตอนการสั่งซื้อ
-						li(class=(data.screen == 'about_us' ? 'active' : ''))
-							a(href='#{data.websiteUrl}/about_us') เกี่ยวกับเรา
-						li(class=(data.screen == 'contact' ? 'active' : ''))
-							a(href='#{data.websiteUrl}/contact') ติดต่อสอบถาม
-						li(class=(data.screen == 'register' ? 'active' : ''))
-							a(href='#{data.websiteUrl}') สมัครสมาชิก
-
-		.footer(style="border-radius:0; background-color: #fdbe0f; color:black")
-			.container
-				.col-xs-12.col-md-3
-					table(style="margin-top:20px; background-color: #fdbe0f; color:black")
-						tr
-							td
-								img.img-responsive(src="//img.powerdd.com/web/contact/line-powerdd.png", width="150")
-						tr
-							td(align="center")
-								| Line ID  
-								b @PowerDD
-
-				.col-xs-12.col-md-5
-					h3 สิทธิประโยชน์พิเศษเมื่อ Add Line
-					ul
-						li  รับสิทธิ์ร่วมกิจกรรมพิเศษของ PowerDD
-						li  รับข่าวสาร และโปรโมชั่นพิเศษก่อนใคร
-						li  รับข้อมูลเกี่ยวกับสินค้า กิจกรรม สิทธิพิเศษ และรายการส่งเสริมการขาย
-				.col-xs-12.col-md-4
-					h3 บริษัท พาวเวอร์ โบล์ท จำกัด
-					| 900/31 อาคารเอสวีซิตี้ ชั้น 1 ห้อง F-13
-					br
-					| พระราม3 แขวงบางโพงพาง เขตยานนาวา
-					br
-					| จังหวัดนนทบุรี 10120
-					br
-					br
-					| มือถือ: 098-9919-060
-					br
-					| แฟกซ์: +66 (0)2 295 3296
-					br
-					| อีเมล: service@powerdd.com
-
+		
+		footer
+			.row
+				.row.text-center
+					img.img-responsive.center-block(src='https://img.powerdd.com/web/logo/dbd.png')
+				.col-lg-12.text-center.margin-top-10
+					p Copyright © 2015 Remax (Thailand) All rights reserved.
+		
+		script(src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment-with-locales.min.js')
+		script(src='//cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js')	
 		script(src='//cdn.powerdd.com/jquery/2.1.4/jquery.min.js')
 		script(src='//cdn.powerdd.com/bootstrap/3.3.5/js/bootstrap.min.js')
-		script(src='//cdn.powerdd.com/angular/1.4.6/angular.min.js')
-		script(src='//cdn.powerdd.com/angular/ngStorage/0.3.9/ngStorage.min.js')
-		script(src='/javascripts/common.js')
+		script(src='/scripts/js.cookie.js')
+		script(src='/scripts/main.js')
+		if (data.script != '')
+			script(src='#{data.system_url}#{data.script}')
+		

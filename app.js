@@ -30,6 +30,7 @@ app.get('*', function(req, res) {
 	data.apiUrl = 'https://api-test.powerdd.com'; //process.env.API_URL;
 	data.apiKey = 'TEST-0003'; //process.env.ApiKey;
 	data.websiteUrl = 'https://test.powerdd.com';//process.env.Website_URL;
+	data.system_url = 'https://test.powerdd.com';
 	data.categorySelected = '';
 	data.Moment = require('moment');
 

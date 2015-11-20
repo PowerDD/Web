@@ -4,13 +4,14 @@ exports.index = function(req, res, data){
 		data.title = 'หน้าหลัก';
 	}
 
-	exports.getBrand(req, res, data);
+	exports.getCategory(req, res, data);
 
 };
 
-exports.getBrand = function(req, res, data){ //data.apiUrl + '/brand/info'
+exports.getCategory = function(req, res, data){
+	//## Get Category Menu ##//
 	try{
-		/* request.post({headers: { 'referer': data.websiteUrl }, url: data.apiUrl + '/brand/info',
+		request.post({headers: { 'referer': data.websiteUrl }, url: data.apiUrl + '/category/info',
 			form: {
 				apiKey: data.apiKey,
 				shop: data.shop
@@ -18,19 +19,14 @@ exports.getBrand = function(req, res, data){ //data.apiUrl + '/brand/info'
 		},
 		function (error, response, body) {
 			if (!error) {				
-				res.send(body);
+				var json = JSON.parse(body);
+				data.category = json.result;
+				res.send(data);
 			} else{
 				data.error = error.message;
 				data.stack = error.stack;
 				res.render('error', { data: data });
 			}
-		}); */
-		
-		request({headers: { 'referer': 'http://test.powerdd.com'}, url:'http://api-test.powerdd.com'} , 
-		function (error, response, body) {
-			if (!error) {
-				res.send(body);
-		    }
 		});
 	}
 	catch(error) {
