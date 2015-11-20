@@ -30,25 +30,25 @@ html
 							img(src='https://img.powerdd.com/web/logo/remax.png')
 					#navbar.navbar-collapse.collapse
 						ul.nav.navbar-nav
-							li.(class= (#{data.screen} == 'index' ? 'active' : ''))
-								a(href= #{data.system_url}) หน้าหลัก
-							li.(class= (#{data.screen} == 'about_us' ? 'active' : ''))
+							li.(class= ('#{data.screen}' == 'index' ? 'active' : ''))
+								a(href= '#{data.system_url}') หน้าหลัก
+							li.(class= ('#{data.screen}' == 'about_us' ? 'active' : ''))
 								a(href='#{data.system_url}/about_us') เกี่ยวกับเรา
-							li(class=(#{data.screen} == 'category' ? 'dropdown active' : 'dropdown'))
+							li(class=('#{data.screen}' == 'category' ? 'dropdown active' : 'dropdown'))
 							a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
 								| หมวดหมู่สินค้า 
 								span.caret
 							ul.dropdown-menu(role='menu')
-								li(class=(#{data.screen} == 'category' && #{data.categorySelected} == new ? 'active' : ''))
+								li(class=('#{data.screen}'== 'category' && '#{data.categorySelected}' == new ? 'active' : ''))
 									a(href= '#{data.system_url}/product/category/new') New Arrivals
 								each values in data.category
-									li(class=(#{data.screen} == 'category' && #{data.categorySelected} == values.url ? 'active' : ''))
+									li(class=('#{data.screen}' == 'category' && '#{data.categorySelected}' == values.url ? 'active' : ''))
 										a(href='#{data.system_url}/category/'+values.url)= values.name
-							li.(class= (#{data.screen} == 'contact_us' ? 'active' : ''))
+							li.(class= ('#{data.screen}' == 'contact_us' ? 'active' : ''))
 								a(href= '#{data.system_url}/contact_us') ติดต่อเรา
-							li.(class= (#{data.screen} == 'warranty_condition' ? 'active' : ''))
+							li.(class= ('#{data.screen}' == 'warranty_condition' ? 'active' : ''))
 								a(href= '#{data.system_url}/warranty_condition') เงื่อนไขการรับประกัน
-							li.(class= (#{data.screen} == 'payment' ? 'active' : ''))
+							li.(class= ('#{data.screen}' == 'payment' ? 'active' : ''))
 								a(href= '#{data.system_url}/payment') วิธีการชำระเงิน
 						ul.nav.navbar-nav.navbar-right
 							li
