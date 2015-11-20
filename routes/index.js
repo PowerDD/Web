@@ -13,9 +13,9 @@ exports.index = function(req, res, data){
 		},
 		function (error, response, body) {
 			if (!error) {				
-				var json = JSON.parse(body);
-				data.category = json.result;
-				res.send(data);
+				// var json = JSON.parse(body);
+				// data.category = json.result;
+				res.send(body);
 			} else{
 				data.error = error.message;
 				data.stack = error.stack;
