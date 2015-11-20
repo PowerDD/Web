@@ -35,7 +35,7 @@ app.get('*', function(req, res) {
 	data.Moment = require('moment');
 
 
-	var url = req.headers['x-original-url'];
+	var url = req.originalUrl.split('/');
 	//url = url.filter(function(n){ return n !== ''; });
 	data.url = url;
 	
