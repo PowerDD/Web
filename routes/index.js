@@ -5,12 +5,7 @@ exports.index = function(req, res, data){
 	}
 
 	try{
-		request.post({url: {data.apiUrl + '/category/info'},
-			form: {
-				apiKey: data.apiKey,
-				shop: data.shop
-			}
-		},
+		request('http://www.google.com',
 		function (error, response, body) {
 			if (!error) {				
 				// var json = JSON.parse(body);
