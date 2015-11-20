@@ -1,4 +1,4 @@
-var request = require('./request');
+var request = require('request');
 exports.index = function(req, res, data){
 	if (data.screen == 'index') {
 		data.title = 'หน้าหลัก';
@@ -9,9 +9,8 @@ exports.index = function(req, res, data){
 };
 
 exports.getCategory = function(req, res, data){
-	//## Get Category Menu ##//
 	try{
-		request.post({headers: { 'referer': data.websiteUrl }, url: data.apiUrl + '/category/info',
+		request.post({url: {data.apiUrl + '/category/info'},
 			form: {
 				apiKey: data.apiKey,
 				shop: data.shop
