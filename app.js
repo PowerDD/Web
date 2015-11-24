@@ -27,7 +27,8 @@ app.get('*', function(req, res) {
 	data = {};
 	data.screen = 'index';
 	data.shop = '09A3C5B1-EBF7-443E-B620-48D3B648294E'; //process.env.Shop;
-	data.apiUrl = 'http://127.0.0.1:7990'; //process.env.API_URL;
+	//data.apiUrl = 'http://127.0.0.1:7990'; //process.env.API_URL; 
+	data.apiUrl = 'https://api-test.remaxthailand.co.th';
 	data.apiKey = 'TEST-0003'; //process.env.ApiKey;
 	data.websiteUrl = 'https://test.powerdd.com';//process.env.Website_URL;
 	data.system_url = 'https://test.powerdd.com';
